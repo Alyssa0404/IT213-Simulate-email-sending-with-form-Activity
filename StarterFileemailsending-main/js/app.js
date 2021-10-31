@@ -42,10 +42,24 @@ function sendEmail (e) {
     const spinner = document.querySelector('#spinner');
     spinner.style.display = 'block';
 
+    //show the image
+    const sendEmailImg = document.createElement('img');
+    sendEmailImg.src = 'img/mail.gif';
+    sendEmailImg.style.display = 'block';
+
     // hide spinner then show the send email image
     setTimeout(function() {
 
         spinner.style.display = 'none';
+
+        // show the image
+        document.querySelector('#loaders').appendChild(sendEmailImg);
+        
+        setTimeout(function(){
+          sendEmailForm.reset ();
+          sendEmailImg.remove ();
+
+        },5000);
 
     }, 3000);
 }
